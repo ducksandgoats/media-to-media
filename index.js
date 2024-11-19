@@ -131,20 +131,20 @@ export default class Base extends EventEmitter {
             this._ids.set(id, new Map())
         }
     }
-    play(id, mime){
-        this.client.onSend(JSON.stringify({id, user: this._user, state: 'play', mime}))
+    start(id, kind, mime){
+        this.client.onSend(JSON.stringify({id, kind, user: this._user, state: 'start', mime}))
     }
-    resume(id, mime){
-        this.client.onSend(JSON.stringify({id, user: this._user, state: 'resume', mime}))
+    play(id, kind, mime){
+        this.client.onSend(JSON.stringify({id, kind, user: this._user, state: 'play', mime}))
     }
-    pause(id, mime){
-        this.client.onSend(JSON.stringify({id, user: this._user, state: 'pause', mime}))
+    pause(id, kind, mime){
+        this.client.onSend(JSON.stringify({id, kind, user: this._user, state: 'pause', mime}))
     }
-    stop(id, mime){
-        this.client.onSend(JSON.stringify({id, user: this._user, state: 'stop', mime}))
+    stop(id, kind, mime){
+        this.client.onSend(JSON.stringify({id, kind, user: this._user, state: 'stop', mime}))
     }
-    async data(id, mime, segment, data){
-        this.client.onSend(JSON.stringify({id, user: this._user, data: await data.text(), segment, stamp: Date.now(), mime}))
+    async data(id, kind, mime, segment, data){
+        this.client.onSend(JSON.stringify({id, kind, user: this._user, data: await data.text(), segment, stamp: Date.now(), mime}))
     }
     sub(id){
         if(this._ids.has(id)){
