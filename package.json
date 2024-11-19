@@ -1,0 +1,17 @@
+{
+  "name": "media-to-media",
+  "version": "1.0.1",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "events": "^3.3.0",
+    "relay-to-relay": "^2.0.0"
+  }
+}
