@@ -144,7 +144,8 @@ export default class Base extends EventEmitter {
         this.client.onSend(JSON.stringify({id, kind, user: this._user, state: 'stop', mime}))
     }
     async data(id, kind, mime, segment, data){
-        this.client.onSend(JSON.stringify({id, kind, state: 'data', user: this._user, data: await data.text(), segment, stamp: Date.now(), mime}))
+        // if(this._ids.has(id)){}
+        this.client.onSend(JSON.stringify({id, kind, state: 'data', user: this._user, data, segment, stamp: Date.now(), mime}))
     }
     sub(id){
         if(this._ids.has(id)){
